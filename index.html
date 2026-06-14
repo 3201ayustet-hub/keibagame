@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>俺たちダービー | しょうもない友だち競馬アプリ</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="top-hero">
+      <div class="paper-label">友ダビスポーツ</div>
+      <h1>俺たちダービー</h1>
+      <p>特徴ボタンを押すだけ。友だちを競走馬化して、新聞・レース・号外で雑に盛り上がるアプリ。</p>
+    </header>
+
+    <nav class="steps" aria-label="遊び方">
+      <div class="step active">1<br><span>特徴を押す</span></div>
+      <div class="step">2<br><span>新聞を見る</span></div>
+      <div class="step">3<br><span>レースする</span></div>
+      <div class="step">4<br><span>号外保存</span></div>
+    </nav>
+
+    <section class="panel compact">
+      <h2>レース設定</h2>
+      <div class="form-grid">
+        <label>レース名
+          <input id="raceName" value="第1回 焼肉記念" />
+        </label>
+        <label>グレード
+          <select id="raceGrade">
+            <option selected>GⅠ</option><option>GⅡ</option><option>GⅢ</option><option>OP</option><option>特別</option>
+          </select>
+        </label>
+        <label>開催地
+          <input id="venue" value="居酒屋競馬場" />
+        </label>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <div>
+          <h2>出走者</h2>
+          <p class="hint">特徴ボタンを押すと、馬名・二つ名・本紙コメントがその場で変わります。</p>
+        </div>
+        <button id="addRunnerBtn" class="ghost">+ 枠を追加</button>
+      </div>
+      <div id="runnerList" class="runner-list"></div>
+    </section>
+
+    <section class="panel newspaper-panel">
+      <div class="section-head sticky-head">
+        <h2>競馬新聞風 出馬表</h2>
+        <button id="downloadEntryBtn" class="ghost">PNG保存</button>
+      </div>
+      <div id="entryPaper" class="paper entry-paper"></div>
+    </section>
+
+    <section class="panel race-panel">
+      <div class="section-head">
+        <h2>周回レース</h2>
+        <button id="startRaceBtn" class="primary">レース開始</button>
+      </div>
+
+      <div class="track-wrap">
+        <div id="raceTrack" class="oval-track">
+          <div class="track-label">FRIEND DERBY</div>
+          <div class="start-line"></div>
+        </div>
+      </div>
+
+      <div id="eventCard" class="event-card idle">
+        <div class="event-kind">実況</div>
+        <div class="event-title">レース開始を押してください</div>
+        <div class="event-body">スキル発動やハプニングで、しょうもなく順位が入れ替わります。</div>
+      </div>
+
+      <div id="commentary" class="commentary">特徴を選んだら、新聞を見て、レース開始！</div>
+    </section>
+
+    <section class="panel newspaper-panel">
+      <div class="section-head sticky-head">
+        <h2>号外・結果新聞</h2>
+        <button id="downloadResultBtn" class="ghost">PNG保存</button>
+      </div>
+      <div id="resultPaper" class="paper result-paper"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="./data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
