@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>俺たちダービー | 友だち競馬新聞メーカー</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div class="kicker">FRIEND DERBY NEWS</div>
+      <h1>俺たちダービー</h1>
+      <p>友だちを競走馬化して、出馬表・レース演出・号外新聞を作るパーティーアプリ</p>
+    </header>
+
+    <section class="panel">
+      <h2>1. レース設定</h2>
+      <div class="form-grid">
+        <label>レース名
+          <input id="raceName" value="第1回 焼肉記念" />
+        </label>
+        <label>グレード
+          <select id="raceGrade">
+            <option>GⅠ</option><option>GⅡ</option><option>GⅢ</option><option>OP</option><option>特別</option>
+          </select>
+        </label>
+        <label>距離
+          <select id="raceDistance">
+            <option>1200m</option><option selected>1600m</option><option>2000m</option><option>2400m</option><option>3200m</option>
+          </select>
+        </label>
+        <label>開催地
+          <input id="venue" value="居酒屋競馬場" />
+        </label>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>2. 出走者登録</h2>
+        <button id="addRunnerBtn" class="ghost">+ 追加</button>
+      </div>
+      <div id="runnerList" class="runner-list"></div>
+      <div class="button-row">
+        <button id="generateBtn">馬名・能力・新聞を生成</button>
+        <button id="startRaceBtn" class="primary">レース開始</button>
+      </div>
+    </section>
+
+    <section class="layout">
+      <div class="panel newspaper-wrap">
+        <div class="section-head">
+          <h2>3. 競馬新聞風 出馬表</h2>
+          <button id="downloadEntryBtn" class="ghost">出馬表PNG保存</button>
+        </div>
+        <div id="entryPaper" class="paper entry-paper"></div>
+      </div>
+
+      <div class="panel">
+        <h2>4. レース演出</h2>
+        <div id="raceTrack" class="race-track"></div>
+        <div id="commentary" class="commentary">レース開始を押すと実況が流れます。</div>
+      </div>
+    </section>
+
+    <section class="panel newspaper-wrap">
+      <div class="section-head">
+        <h2>5. 号外・結果新聞</h2>
+        <button id="downloadResultBtn" class="ghost">号外PNG保存</button>
+      </div>
+      <div id="resultPaper" class="paper result-paper"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="./data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
