@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>俺たちダービー v5</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="top-hero">
+      <div class="paper-label">友ダビスポーツ</div>
+      <h1>俺たちダービー</h1>
+      <p>じゃんけん・あみだくじ代わりに使える、しょうもないランダム順位決定レース。</p>
+    </header>
+
+    <section class="panel compact">
+      <h2>何を決める？</h2>
+      <p class="hint">順位はレース開始時に毎回ランダムで決定。途中はスキル・ハプニングで抜きつ抜かれつします。</p>
+      <div class="form-grid">
+        <label>レース名<input id="raceName" value="第1回 焼肉記念" /></label>
+        <label>用途
+          <select id="purpose">
+            <option selected>順番決め</option><option>おごり決め</option><option>罰ゲーム決め</option><option>幹事決め</option><option>今日の主役決め</option>
+          </select>
+        </label>
+        <label>開催地<input id="venue" value="居酒屋競馬場" /></label>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <div>
+          <h2>出走者</h2>
+          <p class="hint">特徴ボタンを押すと馬名が即生成されます。</p>
+        </div>
+        <button id="addRunnerBtn" class="ghost">+ 枠を追加</button>
+      </div>
+      <div id="runnerList" class="runner-list"></div>
+    </section>
+
+    <section class="panel newspaper-panel">
+      <div class="section-head sticky-head">
+        <h2>レース前新聞</h2>
+        <button id="downloadEntryBtn" class="ghost">PNG保存</button>
+      </div>
+      <div id="entryPaper" class="paper entry-paper"></div>
+    </section>
+
+    <section class="panel race-panel">
+      <div class="section-head">
+        <div>
+          <h2>周回レース</h2>
+          <p class="hint">ゲート→俯瞰→先頭追跡→第4コーナー→ゴール前カメラへ切り替わります。</p>
+        </div>
+        <button id="startRaceBtn" class="primary">ランダムレースで決める</button>
+      </div>
+
+      <div id="cameraLabel" class="camera-label">待機中</div>
+
+      <div class="track-stage">
+        <div id="gateScene" class="gate-scene hidden">
+          <div class="gate-title">各馬ゲートイン</div>
+          <div id="gateRows" class="gate-rows"></div>
+          <div id="countdown" class="countdown">3</div>
+        </div>
+
+        <div id="raceTrack" class="oval-track">
+          <div class="track-label">FRIEND<br>DERBY</div>
+          <div class="start-line"></div>
+          <div id="goalBoard" class="goal-board hidden"></div>
+          <div id="finishOverlay" class="finish-overlay hidden"></div>
+        </div>
+      </div>
+
+      <div id="liveRank" class="live-rank">
+        <div class="live-rank-title">現在順位</div>
+        <div id="liveRankList">レース開始待ち</div>
+      </div>
+
+      <div id="cutin" class="cutin hidden">
+        <div class="cutin-panel">
+          <div id="cutinKind" class="cutin-kind">スキル発動</div>
+          <div class="cutin-main">
+            <div id="cutinPhoto" class="cutin-photo"></div>
+            <div>
+              <div id="cutinHorse" class="cutin-horse">ムラノロケット</div>
+              <div id="cutinTitle" class="cutin-title">ギリギリ到着</div>
+              <div id="cutinBody" class="cutin-body">速度アップ！</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="eventCard" class="event-card idle">
+        <div class="event-kind">実況</div>
+        <div class="event-title">レース開始を押してください</div>
+        <div class="event-body">デフォルメ馬がゆっくり周回します。</div>
+      </div>
+
+      <div id="commentary" class="commentary">特徴を選んだら、新聞を見て、ランダムレースで決めましょう。</div>
+    </section>
+
+    <section class="panel result-panel">
+      <div class="section-head sticky-head">
+        <h2>結果発表</h2>
+        <button id="downloadResultBtn" class="ghost">PNG保存</button>
+      </div>
+      <div id="resultPaper" class="result-board"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="./data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
